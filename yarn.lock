@@ -10,9 +10,9 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
-"@cli-engine/command@https://github.com/heroku/cli-engine-command#050162b":
-  version "11.0.0-beta.2"
-  resolved "https://github.com/heroku/cli-engine-command#050162bc24fd0e1432613a801ec695eb86c78832"
+"@cli-engine/command@^11.0.0-beta.3":
+  version "11.0.0-beta.3"
+  resolved "https://registry.yarnpkg.com/@cli-engine/command/-/command-11.0.0-beta.3.tgz#0c36ad9124c073004bc89668b3a59ae01f6b40d7"
   dependencies:
     chalk "^2.3.0"
     cli-flags "^2.0.3"
@@ -21,9 +21,9 @@
   version "5.0.0-beta.4"
   resolved "https://registry.yarnpkg.com/@cli-engine/config/-/config-5.0.0-beta.4.tgz#c61dd31b92163e986b3c8f102c823d31c997ae79"
 
-"@cli-engine/engine@https://github.com/heroku/cli-engine#5aacdd61":
-  version "5.0.0-beta.0"
-  resolved "https://github.com/heroku/cli-engine#5aacdd611255e7df38f04c04ff2e225ae8fa9140"
+"@cli-engine/engine@^5.0.0-beta.1":
+  version "5.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@cli-engine/engine/-/engine-5.0.0-beta.1.tgz#cb6b7ab910e2efd738157132e40369d265e0d67c"
   dependencies:
     "@heroku-cli/color" "^1.0.3"
     assync "^1.0.3"
