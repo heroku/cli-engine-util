@@ -1,0 +1,42 @@
+{
+  "name": "@cli-engine/util",
+  "description": "scripts to use with cli-engine codebases",
+  "version": "0.0.0",
+  "author": "Jeff Dickey @jdxcode",
+  "bin": {
+    "cli-engine-util": "./bin/run"
+  },
+  "cli-engine": {
+    "bin": "cli-engine-util",
+    "commands": "./lib/commands"
+  },
+  "dependencies": {
+    "@cli-engine/engine": "https://github.com/heroku/cli-engine#beta",
+    "cli-engine-command": "https://github.com/heroku/cli-engine-command",
+    "cli-engine-config": "^5.0.9",
+    "del-cli": "^1.1.0",
+    "fs-extra": "^5.0.0"
+  },
+  "devDependencies": {
+    "@heroku-cli/tslint": "^1.0.3",
+    "@types/ansi-styles": "^2.0.30",
+    "@types/del": "^3.0.0",
+    "@types/fs-extra": "^5.0.0",
+    "@types/jest": "^21.1.9",
+    "@types/node": "^8.5.2",
+    "husky": "^0.14.3",
+    "jest": "^22.0.4",
+    "prettier": "^1.9.2",
+    "ts-jest": "^22.0.0",
+    "tslint": "^5.8.0",
+    "typescript": "^2.6.2"
+  },
+  "files": [],
+  "license": "MIT",
+  "repository": "jdxcode/cli-engine-util",
+  "scripts": {
+    "lint": "cli-engine-util lint",
+    "prepare": "cli-engine-util prepare",
+    "precommit": "cli-engine-util lint"
+  }
+}
