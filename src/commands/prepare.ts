@@ -15,7 +15,7 @@ export default class Prepare extends Command {
     const tsconfig: TSConfig = await fs.readJSON('tsconfig.json')
     const outDir = tsconfig.compilerOptions.outDir
     if (!outDir) throw new Error('outDir not defined in tsconfig.json')
-    await fs.remove(outDir)
+    await fs.remove(path.join(outDir))
     await sh('tsc')
     await fs.del(path.join(outDir, '**', '*.test.+(d.ts|js)'))
   }
