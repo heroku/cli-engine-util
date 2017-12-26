@@ -18,7 +18,7 @@ test('ok', async () => {
       }),
   )
   await Prepare.mock()
-  expect(fs.remove).toBeCalledWith('lib')
+  expect(fs.del).toBeCalledWith('lib')
   expect(util.sh).toBeCalledWith('tsc')
   expect(fs.del).toBeCalledWith('lib/**/*.test.+(d.ts|js)')
 })
