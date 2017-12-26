@@ -1,3 +1,9 @@
 #!/usr/bin/env node
 
+const script = process.env.npm_lifecycle_event
+// default to current npm script
+if (script) {
+  process.argv = [...process.argv.slice(0, 2), script, ...process.argv.slice(2)]
+}
+
 require('@cli-engine/engine').run()

@@ -1,4 +1,4 @@
-import { Command, flags } from 'cli-engine-command'
+import { Command, flags } from '@cli-engine/command'
 import cli from 'cli-ux'
 
 import { sh } from '../util'
@@ -7,6 +7,7 @@ export default class Lint extends Command {
   static flags: flags.Input = {
     fix: flags.boolean({ char: 'f' }),
   }
+  static aliases = ['precommit', 'posttest']
 
   async run() {
     await this.tslint()
@@ -21,7 +22,7 @@ export default class Lint extends Command {
     } catch (err) {
       if (err.code === 'ENOENT') cli.warn('tslint is not installed')
       else {
-        cli.log('Error in tslint. Run `yarn run lint --fix` to try to fix issues automatically.')
+        cli.log(`Error in tslint. Run \`${this.cmd} --fix\` to try to fix issues automatically.`)
         throw err
       }
     }
@@ -36,10 +37,20 @@ export default class Lint extends Command {
       if (err.code === 'ENOENT') cli.warn('prettier is not installed')
       else {
         cli.log(
-          'Prettier would generate these files differently. Run `yarn run lint --fix` to try to fix issues automatically.',
+          `Prettier would generate these files differently. Run \`${
+            this.cmd
+          } --fix\` to try to fix issues automatically.`,
         )
         throw err
       }
     }
+  }
+
+  private get cmd(): string {
+    const script = process.env.npm_lifecycle_event
+    if (script && this.ctor.aliases.includes(script)) {
+      return `yarn run ${script}`
+    }
+    return 'cli-engine-util lint'
   }
 }

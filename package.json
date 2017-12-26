@@ -11,9 +11,9 @@
     "commands": "./lib/commands"
   },
   "dependencies": {
+    "@cli-engine/command": "^11.0.0-beta.1",
+    "@cli-engine/config": "^5.0.0-beta.1",
     "@cli-engine/engine": "https://github.com/heroku/cli-engine#beta",
-    "cli-engine-command": "https://github.com/heroku/cli-engine-command",
-    "cli-engine-config": "^5.0.9",
     "cli-ux": "^2.0.14",
     "del": "^3.0.0",
     "fs-extra": "^5.0.0"
@@ -38,9 +38,9 @@
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
-    "posttest": "cli-engine-util lint",
-    "precommit": "cli-engine-util lint",
-    "prepare": "cli-engine-util prepare",
+    "posttest": "cli-engine-util",
+    "precommit": "cli-engine-util",
+    "prepare": "cli-engine-util",
     "pretest": "tsc",
     "test": "jest"
   }

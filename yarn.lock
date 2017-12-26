@@ -10,6 +10,17 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
+"@cli-engine/command@^11.0.0-beta.1":
+  version "11.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@cli-engine/command/-/command-11.0.0-beta.1.tgz#212d57e242fef77b07d389d03f7e101ea6306782"
+  dependencies:
+    chalk "^2.3.0"
+    cli-flags "^2.0.3"
+
+"@cli-engine/config@^5.0.0-beta.1":
+  version "5.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@cli-engine/config/-/config-5.0.0-beta.1.tgz#87c5e3c11f240c7013e4e7ef940d6ba1d798b06e"
+
 "@cli-engine/engine@https://github.com/heroku/cli-engine#beta":
   version "5.0.13"
   resolved "https://github.com/heroku/cli-engine#467a24fed653450e321a9e8922f771a7e0ee0c33"
@@ -591,17 +602,6 @@ chokidar@^1.6.0:
 ci-info@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-1.1.2.tgz#03561259db48d0474c8bdc90f5b47b068b6bbfb4"
-
-"cli-engine-command@https://github.com/heroku/cli-engine-command":
-  version "11.0.14"
-  resolved "https://github.com/heroku/cli-engine-command#067a636e3a01eed4f1251857674b7f723318def7"
-  dependencies:
-    chalk "^2.3.0"
-    cli-flags "^2.0.3"
-
-cli-engine-config@^5.0.9:
-  version "5.0.9"
-  resolved "https://registry.yarnpkg.com/cli-engine-config/-/cli-engine-config-5.0.9.tgz#c3f471ef80fd49ee51db094adad9bbff522e2a96"
 
 cli-flags@^2.0.3:
   version "2.0.3"
