@@ -39,9 +39,9 @@
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
-    "posttest": "cli-engine-util",
-    "precommit": "cli-engine-util",
-    "prepare": "cli-engine-util",
+    "posttest": "./bin/run",
+    "precommit": "./bin/run",
+    "prepare": "./bin/run",
     "pretest": "tsc",
     "test": "jest"
   }
