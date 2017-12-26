@@ -11,10 +11,10 @@
     "commands": "./lib/commands"
   },
   "dependencies": {
-    "@cli-engine/command": "^11.0.0-beta.1",
-    "@cli-engine/config": "^5.0.0-beta.1",
-    "@cli-engine/engine": "https://github.com/heroku/cli-engine#bae2fd9e",
-    "cli-ux": "^2.0.14",
+    "@cli-engine/command": "^11.0.0-beta.2",
+    "@cli-engine/config": "^5.0.0-beta.2",
+    "@cli-engine/engine": "^5.0.0-beta.0",
+    "cli-ux": "^2.0.15",
     "del": "^3.0.0",
     "fs-extra": "^5.0.0"
   },
