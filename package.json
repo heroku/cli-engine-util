@@ -32,12 +32,16 @@
     "tslint": "^5.8.0",
     "typescript": "^2.6.2"
   },
-  "files": [],
+  "files": [
+    "lib"
+  ],
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
-    "lint": "cli-engine-util lint",
+    "posttest": "cli-engine-util lint",
+    "precommit": "cli-engine-util lint",
     "prepare": "cli-engine-util prepare",
-    "precommit": "cli-engine-util lint"
+    "pretest": "tsc",
+    "test": "jest"
   }
 }

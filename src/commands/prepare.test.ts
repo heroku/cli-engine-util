@@ -13,12 +13,12 @@ test('ok', async () => {
       f === 'tsconfig.json' &&
       Promise.resolve({
         compilerOptions: {
-          lib: './lib',
+          outDir: './lib',
         },
       }),
   )
   await Prepare.mock()
   expect(fs.remove).toBeCalledWith('./lib')
   expect(util.sh).toBeCalledWith('tsc')
-  expect(fs.remove).toBeCalledWith('tsc')
+  expect(fs.del).toBeCalledWith('lib/**/*.test.+(d.ts|js)')
 })
