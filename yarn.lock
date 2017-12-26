@@ -41,26 +41,6 @@
     strip-ansi "4.0.0"
     ts-lodash "4.0.8"
 
-"@cli-engine/engine@https://github.com/heroku/cli-engine#beta":
-  version "5.0.13"
-  resolved "https://github.com/heroku/cli-engine#3a48155deb4e61c02e92749c8a54a766b13ef966"
-  dependencies:
-    "@heroku-cli/color" "^1.0.3"
-    assync "^1.0.3"
-    cli-ux "^2.0.14"
-    debug "^3.1.0"
-    fs-extra "^5.0.0"
-    graceful-fs "^4.1.11"
-    http-call "^4.0.5"
-    klaw "^2.1.1"
-    log-chopper "^1.0.1"
-    moment "^2.20.1"
-    rwlockfile "^1.4.11"
-    semver "5.4.1"
-    string-similarity "^1.2.0"
-    strip-ansi "4.0.0"
-    ts-lodash "4.0.8"
-
 "@heroku-cli/color@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@heroku-cli/color/-/color-1.0.3.tgz#f94866b351f20771ee958f07c790011ceb36c066"

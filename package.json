@@ -41,7 +41,7 @@
   "scripts": {
     "posttest": "./bin/run",
     "precommit": "./bin/run",
-    "prepare": "./bin/run",
+    "prepare": "tsc && ./bin/run",
     "pretest": "tsc",
     "test": "jest"
   }
