@@ -33,6 +33,7 @@
     "typescript": "^2.6.2"
   },
   "files": [
+    "bin",
     "lib"
   ],
   "license": "MIT",
