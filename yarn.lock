@@ -23,7 +23,7 @@
 
 "@cli-engine/engine@https://github.com/heroku/cli-engine#beta":
   version "5.0.13"
-  resolved "https://github.com/heroku/cli-engine#467a24fed653450e321a9e8922f771a7e0ee0c33"
+  resolved "https://github.com/heroku/cli-engine#3a48155deb4e61c02e92749c8a54a766b13ef966"
   dependencies:
     "@heroku-cli/color" "^1.0.3"
     assync "^1.0.3"
