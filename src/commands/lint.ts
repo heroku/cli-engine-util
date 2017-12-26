@@ -10,6 +10,7 @@ export default class Lint extends Command {
   static aliases = ['precommit', 'posttest']
 
   async run() {
+    await sh('node', ['--version'])
     await this.tslint()
     await this.prettier()
   }
