@@ -29,7 +29,7 @@ export default class Lint extends Command {
 
   private async prettier() {
     try {
-      const args = ['--list-different', '**/*.ts', '**/*.js']
+      const args = ['--list-different', 'src/**/*.ts', 'src/**/*.js']
       if (this.flags.fix) args[0] = '--write'
       await sh('prettier', args)
     } catch (err) {

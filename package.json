@@ -14,7 +14,8 @@
     "@cli-engine/engine": "https://github.com/heroku/cli-engine#beta",
     "cli-engine-command": "https://github.com/heroku/cli-engine-command",
     "cli-engine-config": "^5.0.9",
-    "del-cli": "^1.1.0",
+    "cli-ux": "^2.0.14",
+    "del": "^3.0.0",
     "fs-extra": "^5.0.0"
   },
   "devDependencies": {
