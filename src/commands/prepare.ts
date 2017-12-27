@@ -17,6 +17,6 @@ export default class Prepare extends Command {
     if (!outDir) throw new Error('outDir not defined in tsconfig.json')
     await fs.del(path.join(outDir))
     await sh('tsc')
-    await fs.del(path.join(outDir, '**', '*.test.+(d.ts|js)'))
+    await fs.del([path.join(outDir, '**', '*.test.+(d.ts|js)'), path.join(outDir, '**', '__test__')])
   }
 }

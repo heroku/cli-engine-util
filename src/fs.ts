@@ -13,7 +13,7 @@ export async function remove(f: string) {
   await fs.remove(f)
 }
 
-export async function del(p: string) {
+export async function del(p: string | string[]) {
   cli.log(`$ del ${p}`)
   await Del(p)
 }
