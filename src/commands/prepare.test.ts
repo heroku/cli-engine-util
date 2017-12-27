@@ -1,3 +1,5 @@
+import * as path from 'path'
+
 import Prepare from './prepare'
 
 jest.mock('../fs')
@@ -20,5 +22,5 @@ test('ok', async () => {
   await Prepare.mock()
   expect(fs.del).toBeCalledWith('lib')
   expect(util.spawn).toBeCalledWith('tsc')
-  expect(fs.del).toBeCalledWith(['lib/**/*.test.+(d.ts|js)', 'lib/**/__test__'])
+  expect(fs.del).toBeCalledWith([`lib${path.sep}**${path.sep}*.test.+(d.ts|js)`, `lib${path.sep}**${path.sep}__test__`])
 })

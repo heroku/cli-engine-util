@@ -44,8 +44,9 @@
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
-    "posttest": "./bin/run",
-    "precommit": "./bin/run",
+    "lint": "./bin/run",
+    "posttest": "yarn run lint",
+    "precommit": "yarn run lint",
     "prepare": "tsc && ./bin/run",
     "pretest": "tsc",
     "test": "jest"
