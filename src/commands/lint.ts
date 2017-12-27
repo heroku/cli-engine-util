@@ -1,7 +1,7 @@
 import { Command, flags } from '@cli-engine/command'
 import cli from 'cli-ux'
 
-import { sh } from '../util'
+import { spawn } from '../util'
 
 export default class Lint extends Command {
   static flags: flags.Input = {
@@ -10,7 +10,7 @@ export default class Lint extends Command {
   static aliases = ['precommit', 'posttest']
 
   async run() {
-    await sh('node', ['--version'])
+    await spawn('node', ['--version'])
     await this.tslint()
     await this.prettier()
   }
@@ -19,7 +19,7 @@ export default class Lint extends Command {
     try {
       const args = ['--project', '.']
       if (this.flags.fix) args.push('--fix')
-      await sh('tslint', args)
+      await spawn('tslint', args)
     } catch (err) {
       if (err.code === 'ENOENT') cli.warn('tslint is not installed')
       else {
@@ -33,7 +33,7 @@ export default class Lint extends Command {
     try {
       const args = ['--list-different', 'src/**/*.ts', 'src/**/*.js']
       if (this.flags.fix) args[0] = '--write'
-      await sh('prettier', args)
+      await spawn('prettier', args)
     } catch (err) {
       if (err.code === 'ENOENT') cli.warn('prettier is not installed')
       else {
