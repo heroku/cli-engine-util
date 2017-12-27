@@ -11,8 +11,8 @@
     "commands": "./lib/commands"
   },
   "dependencies": {
-    "@cli-engine/command": "^11.0.0-beta.4",
-    "@cli-engine/config": "^5.0.0-beta.5",
+    "@cli-engine/command": "^12.0.2",
+    "@cli-engine/config": "^5.0.10",
     "@cli-engine/engine": "^6.1.7",
     "cli-ux": "^2.0.16",
     "del": "^3.0.0",
