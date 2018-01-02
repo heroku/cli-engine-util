@@ -18,13 +18,13 @@
     chalk "^2.3.0"
     cli-flags "^2.0.6"
 
-"@cli-engine/config@^5.0.10":
-  version "5.0.10"
-  resolved "https://registry.yarnpkg.com/@cli-engine/config/-/config-5.0.10.tgz#f8420b9c4cd44e4feafeb90165d9557168bb484c"
+"@cli-engine/config@^5.0.11":
+  version "5.0.11"
+  resolved "https://registry.yarnpkg.com/@cli-engine/config/-/config-5.0.11.tgz#b3b1393da09469fbcaaa99329064e775e275de24"
 
-"@cli-engine/engine@^6.1.10":
-  version "6.1.10"
-  resolved "https://registry.yarnpkg.com/@cli-engine/engine/-/engine-6.1.10.tgz#a3035fd5a3d2d43fcb985adb0bf896d9cd4721c5"
+"@cli-engine/engine@^6.1.12":
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/@cli-engine/engine/-/engine-6.1.12.tgz#4afafc1049823ef204cb63a68d1566a2b1056cb7"
   dependencies:
     "@heroku-cli/color" "^1.0.4"
     assync "^1.0.4"
