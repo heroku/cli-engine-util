@@ -1,7 +1,7 @@
 import { Command, flags } from '@cli-engine/command'
 import cli from 'cli-ux'
 
-import { spawn } from '../util'
+import { hasPrettier, hasTSLint, spawn } from '../util'
 
 export default class Lint extends Command {
   static flags: flags.Input = {
@@ -11,8 +11,12 @@ export default class Lint extends Command {
 
   async run() {
     await spawn('node', ['--version'])
-    await this.tslint()
-    await this.prettier()
+    if (hasTSLint()) {
+      await this.tslint()
+    }
+    if (hasPrettier()) {
+      await this.prettier()
+    }
   }
 
   private async tslint() {

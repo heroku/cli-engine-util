@@ -1,5 +1,6 @@
 import { SpawnOptions } from 'child_process'
 import cli from 'cli-ux'
+import * as fs from 'fs-extra'
 
 export function spawn(command: string, args: string[] = [], opts: SpawnOptions = {}) {
   const spawn = require('cross-spawn')
@@ -12,4 +13,12 @@ export function spawn(command: string, args: string[] = [], opts: SpawnOptions =
       })
       .on('error', reject)
   })
+}
+
+export function hasTSLint(): boolean {
+  return fs.existsSync('tslint.json')
+}
+
+export function hasPrettier(): boolean {
+  return fs.existsSync('.prettierrc')
 }
