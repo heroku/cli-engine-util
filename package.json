@@ -38,7 +38,7 @@
     "@types/jest-diff": "^20.0.0",
     "@types/lodash": "^4.14.92",
     "@types/node": "8.5.7",
-    "@types/read-pkg-up": "^2.0.0",
+    "@types/read-pkg-up": "^3.0.0",
     "@types/supports-color": "^3.1.0",
     "husky": "^0.14.3",
     "jest": "^22.0.4",
