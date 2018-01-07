@@ -53,7 +53,8 @@
   },
   "files": [
     "bin",
-    "lib"
+    "lib",
+    "templates"
   ],
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
