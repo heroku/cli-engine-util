@@ -10,13 +10,13 @@ jobs:
       - run: git submodule sync && git submodule update --init --recursive
       - restore_cache:
           keys:
-            - v1-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
-            - v1-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
-            - v1-yarn-{{ .Environment.CIRCLE_JOB }}-master
+            - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+            - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
+            - v2-yarn-{{ .Environment.CIRCLE_JOB }}-master
       - run: yarn link
       - run: yarn run ci
       - save_cache:
-          key: v1-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+          key: v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
           paths:
             - /cli/node_modules
             - /usr/local/share/.cache/yarn
