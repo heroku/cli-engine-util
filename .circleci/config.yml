@@ -7,11 +7,11 @@ jobs:
     working_directory: /cli
     steps:
       - checkout
-      - restore_cache:
-          keys:
-            - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
-            - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
-            - v2-yarn-{{ .Environment.CIRCLE_JOB }}-master
+      # - restore_cache:
+      #     keys:
+      #       - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+      #       - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
+      #       - v2-yarn-{{ .Environment.CIRCLE_JOB }}-master
       - run: yarn link
       - run: yarn run ci
       - save_cache:
