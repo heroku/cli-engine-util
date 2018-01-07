@@ -59,7 +59,6 @@
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
-    "ci": "./scripts/ci_run",
     "precommit": "./bin/run",
     "prepare": "./bin/run",
     "test": "./bin/run"
