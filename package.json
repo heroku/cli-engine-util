@@ -14,7 +14,7 @@
   "dependencies": {
     "@cli-engine/command": "^12.1.0",
     "@cli-engine/config": "^5.1.0",
-    "@cli-engine/engine": "^6.1.29",
+    "@cli-engine/engine": "^6.1.30",
     "@heroku-cli/color": "^1.1.1",
     "cli-ux": "^2.0.21",
     "cross-spawn": "^5.1.0",
