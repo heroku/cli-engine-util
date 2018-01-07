@@ -60,7 +60,6 @@
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
     "ci": "./scripts/ci_run",
-    "install": "./bin/run",
     "precommit": "./bin/run",
     "prepare": "./bin/run",
     "test": "./bin/run"
