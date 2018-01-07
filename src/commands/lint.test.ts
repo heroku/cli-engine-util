@@ -1,6 +1,6 @@
 import * as path from 'path'
 
-import Prepare from './prepare'
+import Lint from './lint'
 
 const cliStatus = path.join(__dirname, '../../plugins/heroku-cli-status')
 
@@ -14,7 +14,7 @@ afterEach(() => {
 
 jest.setTimeout(30000)
 
-test('runs prepare', async () => {
+test('runs test', async () => {
   process.chdir(cliStatus)
-  await Prepare.mock()
+  await Lint.mock()
 })
