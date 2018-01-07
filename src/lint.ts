@@ -10,7 +10,7 @@ export interface Options {
   fix?: boolean
 }
 
-export type Result = execa.ExecaReturns & { error?: LintError }
+export type Result = execa.ExecaReturns & { error?: Error }
 
 export function active(): Linter[] {
   return _.compact([hasTypescript() && 'tsc', hasTSLint() && 'tslint', hasPrettier() && 'prettier'])
@@ -39,10 +39,10 @@ export const lint: { [k: string]: (opts: Options) => Promise<Result> } = {
   },
 }
 
-function cmd(): string {
+export function cmd(): string {
   const script = process.env.npm_lifecycle_event
   if (script && ['precommit', 'test'].includes(script)) {
-    return `yarn run ${script}`
+    return script === 'test' ? 'yarn test' : `yarn run ${script}`
   }
   return 'cli-engine-util lint'
 }
@@ -51,17 +51,9 @@ function combinedOutput(err: execa.ExecaError) {
   return _.compact([err.stdout, err.stderr]).join('\n')
 }
 
-export class LintError extends Error {
-  constructor(err: execa.ExecaError | string) {
-    if (typeof err === 'string') super(err)
-    else if ((err.code as any) === 'ENOENT') super(`${err.cmd} command not found. Make sure it is installed.`)
-    else return err
-  }
-}
-
-export class TSLintError extends LintError {
+export class TSLintError extends Error {
   constructor(err: execa.ExecaError) {
-    if (err.code !== 2) super(err)
+    if (err.code !== 2) return err
     else {
       const command = color.cmd(`${cmd()} --fix`)
       super(`Error in tslint:
@@ -70,9 +62,9 @@ ${combinedOutput(err)}Run ${command} to try to fix issues automatically.`)
   }
 }
 
-export class PrettierError extends LintError {
+export class PrettierError extends Error {
   constructor(err: execa.ExecaError) {
-    if (err.code !== 1) super(err)
+    if (err.code !== 1) return err
     else {
       const command = color.cmd(`${cmd()} --fix`)
       super(`Prettier would generate these files differently:

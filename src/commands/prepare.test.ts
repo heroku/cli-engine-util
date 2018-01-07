@@ -15,6 +15,5 @@ afterEach(() => {
 jest.setTimeout(30000)
 
 test('runs prepare', async () => {
-  process.chdir(cliStatus)
   await Prepare.mock()
 })
