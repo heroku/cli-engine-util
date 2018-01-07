@@ -38,7 +38,7 @@ test('tslint works', async () => {
   process.chdir(path.join(fixtures, 'tslint'))
   await expect(Lint.mock()).rejects.toThrowError(`Error in tslint:
 
-ERROR: /Users/jdickey/src/github.com/jdxcode/cli-engine-util/test/fixtures/tslint/src/invalid.ts[2, 3]: Calls to 'console.log' are not allowed.
+ERROR: ${fixtures}/tslint/src/invalid.ts[2, 3]: Calls to 'console.log' are not allowed.
 
 Run yarn test --fix to try to fix issues automatically.`)
 })
