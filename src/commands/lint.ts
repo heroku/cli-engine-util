@@ -7,7 +7,7 @@ export default class LintCommand extends Command {
   static flags: flags.Input = {
     fix: flags.boolean(),
   }
-  static aliases = ['precommit']
+  static aliases = ['precommit', 'posttest']
 
   async run() {
     const linters = Lint.active()
