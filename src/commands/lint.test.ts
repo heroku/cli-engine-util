@@ -26,19 +26,16 @@ test('runs test', async () => {
 
 test('tsc works', async () => {
   process.chdir(path.join(fixtures, 'tsc'))
-  await expect(Lint.mock()).rejects.toThrowError(`Command failed: tsc
-
-src/invalid.ts(1,22): error TS6133: 'a' is declared but its value is never read.
-src/invalid.ts(1,22): error TS7006: Parameter 'a' implicitly has an 'any' type.`)
+  await expect(Lint.mock()).rejects.toThrowError(
+    `invalid.ts(1,22): error TS6133: 'a' is declared but its value is never read.`,
+  )
 })
 
 test('tslint works', async () => {
   process.chdir(path.join(fixtures, 'tslint'))
-  await expect(Lint.mock()).rejects.toThrowError(`Error in tslint:
-
-ERROR: ${fixtures}/tslint/src/invalid.ts[2, 3]: Calls to 'console.log' are not allowed.
-
-Run yarn test --fix to try to fix issues automatically.`)
+  await expect(Lint.mock()).rejects.toThrowError(
+    `/tslint/src/invalid.ts[2, 3]: Calls to 'console.log' are not allowed.`,
+  )
 })
 
 test('prettier works', async () => {
