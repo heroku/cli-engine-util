@@ -1,6 +1,6 @@
-import { Command } from '@cli-engine/command'
 import * as path from 'path'
 
+import Command from '../command'
 import * as fs from '../fs'
 import { spawn } from '../util'
 

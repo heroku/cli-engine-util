@@ -22,3 +22,11 @@ export function hasTSLint(): boolean {
 export function hasPrettier(): boolean {
   return fs.existsSync('.prettierrc')
 }
+
+export function hasTypescript(): boolean {
+  return fs.existsSync('tsconfig.json')
+}
+
+export function hasJest(pkg: any): boolean {
+  return pkg.devDependencies.jest
+}
