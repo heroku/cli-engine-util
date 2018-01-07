@@ -7,6 +7,9 @@ import Lint from './lint'
 
 const fixtures = path.join(__dirname, '../../test/fixtures')
 
+const win = process.platform === 'win32'
+const skipOnWindows = win ? test.skip : test
+
 const { npm_lifecycle_event } = process.env
 const cwd = process.cwd()
 beforeEach(() => {
@@ -39,7 +42,7 @@ test('tslint works', async () => {
   )
 })
 
-test('prettier works', async () => {
+skipOnWindows('prettier works', async () => {
   process.chdir(path.join(fixtures, 'prettier'))
   execa.sync('yarn')
   await expect(Lint.mock()).rejects.toThrowError(`Prettier would generate these files differently:
