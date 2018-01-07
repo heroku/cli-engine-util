@@ -3064,9 +3064,15 @@ ts-jest@^22.0.1:
     source-map-support "^0.5.0"
     yargs "^10.0.3"
 
-ts-lodash@4.0.9, ts-lodash@^4.0.8, ts-lodash@^4.0.9:
+ts-lodash@4.0.9, ts-lodash@^4.0.8:
   version "4.0.9"
   resolved "https://registry.yarnpkg.com/ts-lodash/-/ts-lodash-4.0.9.tgz#088d7ceefbf36c8c4bcdf28372249015ccafd429"
+  dependencies:
+    lodash "^4.17.4"
+
+ts-lodash@^4.0.10:
+  version "4.0.10"
+  resolved "https://registry.yarnpkg.com/ts-lodash/-/ts-lodash-4.0.10.tgz#64df9c4febea204de6ce66ac614a6f1f160c2931"
   dependencies:
     lodash "^4.17.4"
 

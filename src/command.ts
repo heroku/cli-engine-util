@@ -1,9 +1,20 @@
 import Command from '@cli-engine/command'
+import colors from '@heroku-cli/color'
 import cli from 'cli-ux'
 import * as path from 'path'
 import * as readPkgUp from 'read-pkg-up'
 
 const { version } = readPkgUp.sync({ cwd: __dirname }).pkg
+
+const idColors: { [k: string]: any } = {
+  prepare: colors.green,
+  setup: colors.greenBright,
+  test: colors.yellowBright,
+}
+
+function colorize(id: string): string {
+  return (idColors[id] || colors.red)(id)
+}
 
 export default abstract class UtilCommand extends Command {
   pkg: readPkgUp.Package
@@ -14,7 +25,7 @@ export default abstract class UtilCommand extends Command {
     await super.init(opts)
     await this.validate()
     cli.log(
-      `@cli-engine/util: ${this.ctor.id} ${this.pkg.name}:${this.pkg.version} node:${
+      `@cli-engine/util: ${colorize(this.ctor.id)} ${this.pkg.name}:${this.pkg.version} node:${
         process.versions.node
       } util:${version}`,
     )

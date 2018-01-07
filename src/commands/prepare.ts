@@ -2,6 +2,7 @@ import cli from 'cli-ux'
 import * as Del from 'del'
 import * as fs from 'fs-extra'
 import * as path from 'path'
+import _ from 'ts-lodash'
 
 import Command from '../command'
 import { spawn } from '../util'
@@ -13,7 +14,8 @@ interface TSConfig {
 }
 
 async function del(p: string | string[]) {
-  cli.log(`$ del ${p}`)
+  p = _.castArray(p)
+  cli.log(`$ del ${p.join(' ')}`)
   await Del(p)
 }
 
