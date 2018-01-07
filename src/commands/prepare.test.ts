@@ -1,26 +1,22 @@
+import * as execa from 'execa'
 import * as path from 'path'
 
 import Prepare from './prepare'
 
-jest.mock('../fs')
-jest.mock('../util')
+const cliStatus = path.join(__dirname, '../../plugins/heroku-cli-status')
 
-const fs = require('../fs')
-const util = require('../util')
+const cwd = process.cwd()
+beforeEach(() => {
+  process.chdir(cliStatus)
+})
+afterEach(() => {
+  process.chdir(cwd)
+})
 
-test('ok', async () => {
-  fs.exists.mockImplementation((f: any) => Promise.resolve(f === './lib'))
-  fs.readJSON.mockImplementation(
-    (f: any) =>
-      f === 'tsconfig.json' &&
-      Promise.resolve({
-        compilerOptions: {
-          outDir: './lib',
-        },
-      }),
-  )
+jest.setTimeout(30000)
+
+test('runs prepare', async () => {
+  process.chdir(cliStatus)
+  await execa('yarn')
   await Prepare.mock()
-  expect(fs.del).toBeCalledWith('lib')
-  expect(util.spawn).toBeCalledWith('tsc')
-  expect(fs.del).toBeCalledWith([`lib${path.sep}**${path.sep}*.test.+(d.ts|js)`, `lib${path.sep}**${path.sep}__test__`])
 })
