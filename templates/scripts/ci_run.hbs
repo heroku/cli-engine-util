@@ -6,8 +6,6 @@
 
 set -ex
 
-PATH=/usr/local/share/.config/yarn/global/node_modules/.bin/:$PATH
-
 if [ ! -x "$(command -v greenkeeper-lockfile-update)" ]; then
   yarn global add greenkeeper-lockfile@1
 fi

@@ -20,6 +20,7 @@ jobs:
           paths:
             - /cli/node_modules
             - /usr/local/share/.cache/yarn
+            - /usr/local/share/.config/yarn
   node-8:
     <<: *test-build
     docker:
