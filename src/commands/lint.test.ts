@@ -1,3 +1,4 @@
+import * as execa from 'execa'
 import * as path from 'path'
 
 import { cmd } from '../lint'
@@ -40,15 +41,7 @@ test('tslint works', async () => {
 
 test('prettier works', async () => {
   process.chdir(path.join(fixtures, 'prettier'))
-  await expect(Lint.mock()).rejects.toThrowError(`Prettier would generate these files differently:
-
-src/invalid.js
-
-Run yarn test --fix to try to fix issues automatically.`)
-})
-
-test('prettier works', async () => {
-  process.chdir(path.join(fixtures, 'prettier'))
+  execa.sync('yarn')
   await expect(Lint.mock()).rejects.toThrowError(`Prettier would generate these files differently:
 
 src/invalid.js
