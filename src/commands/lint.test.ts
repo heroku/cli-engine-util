@@ -4,14 +4,12 @@ import { cmd } from '../lint'
 
 import Lint from './lint'
 
-const cliStatus = path.join(__dirname, '../../plugins/heroku-cli-status')
 const fixtures = path.join(__dirname, '../../test/fixtures')
 
 const { npm_lifecycle_event } = process.env
 const cwd = process.cwd()
 beforeEach(() => {
   process.env.npm_lifecycle_event = 'test'
-  process.chdir(cliStatus)
 })
 afterEach(() => {
   process.env.npm_lifecycle_event = npm_lifecycle_event

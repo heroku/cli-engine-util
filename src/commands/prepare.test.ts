@@ -2,11 +2,11 @@ import * as path from 'path'
 
 import Prepare from './prepare'
 
-const cliStatus = path.join(__dirname, '../../plugins/heroku-cli-status')
+const fixtures = path.join(__dirname, '../../test/fixtures')
 
 const cwd = process.cwd()
 beforeEach(() => {
-  process.chdir(cliStatus)
+  process.chdir(path.join(fixtures, 'lint'))
 })
 afterEach(() => {
   process.chdir(cwd)

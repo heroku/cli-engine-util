@@ -7,7 +7,6 @@ jobs:
     working_directory: /cli
     steps:
       - checkout
-      - run: git submodule sync && git submodule update --init --recursive
       - restore_cache:
           keys:
             - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
