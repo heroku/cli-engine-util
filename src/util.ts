@@ -5,7 +5,7 @@ import * as path from 'path'
 
 export function spawn(command: string, args: string[] = [], opts: execa.Options = {}) {
   return execa(command, args, {
-    localDir: path.join('node_modules', '.bin'),
+    localDir: path.join(process.cwd(), 'node_modules', '.bin'),
     stdio: cli.config.mock ? [] : 'inherit',
     ...opts,
   })
