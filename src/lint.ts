@@ -2,7 +2,7 @@ import color from '@heroku-cli/color'
 import * as execa from 'execa'
 import _ from 'ts-lodash'
 
-import { hasPrettier, hasTSLint, hasTypescript } from './util'
+import { hasPrettier, hasTSLint, hasTypescript, spawn } from './util'
 
 export type Linter = 'tsc' | 'tslint' | 'prettier'
 
@@ -18,14 +18,14 @@ export function active(): Linter[] {
 
 export const lint: { [k: string]: (opts: Options) => Promise<Result> } = {
   async tsc() {
-    const result = await execa('tsc', { reject: false })
+    const result = await spawn('tsc', [], { reject: false, stdio: [] })
     if (isExecaError(result)) return { ...result, error: result }
     return result
   },
   async tslint({ fix }) {
     const args = ['--project', '.']
     if (fix) args.push('--fix')
-    const result = await execa('tslint', args, { reject: false })
+    const result = await spawn('tslint', args, { reject: false, stdio: [] })
     if (isExecaError(result)) return { ...result, error: new TSLintError(result) }
     return result
   },
@@ -33,7 +33,7 @@ export const lint: { [k: string]: (opts: Options) => Promise<Result> } = {
   async prettier({ fix }) {
     const args = ['--list-different', 'src/**/*.ts', 'src/**/*.js']
     if (fix) args[0] = '--write'
-    const result: Result = await execa('prettier', args, { reject: false })
+    const result: Result = await spawn('prettier', args, { reject: false, stdio: [] })
     if (isExecaError(result)) return { ...result, error: new PrettierError(result) }
     return result
   },

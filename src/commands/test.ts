@@ -15,8 +15,10 @@ export default class Test extends Command {
     const lint = linters.map(l => Lint.lint[l](this.flags))
     const tasks: Promise<any>[] = lint.slice(0)
 
-    if (hasJest(this.pkg)) tasks.push(spawn('jest', this.argv))
-    else cli.warn('jest is not in package.json devDependencies')
+    if (hasJest(this.pkg)) {
+      cli.log(`$ jest ${this.argv.join(' ')}`)
+      tasks.push(spawn('jest', this.argv))
+    } else cli.warn('jest is not in package.json devDependencies')
 
     await Promise.all(tasks)
 

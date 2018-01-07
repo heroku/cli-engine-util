@@ -1,10 +1,14 @@
 import cli from 'cli-ux'
 import * as execa from 'execa'
 import * as fs from 'fs-extra'
+import * as path from 'path'
 
 export function spawn(command: string, args: string[] = [], opts: execa.Options = {}) {
-  cli.log(`$ ${[command, ...args].join(' ')}`)
-  return execa(command, args, { stdio: cli.config.mock ? [] : 'inherit', ...opts })
+  return execa(command, args, {
+    localDir: path.join('node_modules', '.bin'),
+    stdio: cli.config.mock ? [] : 'inherit',
+    ...opts,
+  })
 }
 
 export function hasTSLint(): boolean {
