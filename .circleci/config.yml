@@ -4,20 +4,20 @@ jobs:
   node-latest: &test-build
     docker:
       - image: node:latest
-    working_directory: /cli
+    working_directory: ~/cli
     steps:
       - checkout
-      # - restore_cache:
-      #     keys:
-      #       - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
-      #       - v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
-      #       - v2-yarn-{{ .Environment.CIRCLE_JOB }}-master
+      - restore_cache:
+          keys:
+            - v3-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+            - v3-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
+            - v3-yarn-{{ .Environment.CIRCLE_JOB }}-master
       - run: yarn link
       - run: yarn run ci
       - save_cache:
-          key: v2-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+          key: v3-yarn-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
           paths:
-            - /cli/node_modules
+            - ~/cli/node_modules
             - /usr/local/share/.cache/yarn
             - /usr/local/share/.config/yarn
   node-8:
