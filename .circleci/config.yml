@@ -12,6 +12,10 @@ jobs:
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-master
+      - run: |
+          if [[ ! -x "$(command -v shellcheck)" ]]; then
+            apt-get update && apt-get install -y shellcheck
+          fi
       - run: cd test/fixtures/jest && yarn --frozen-lockfile
       - run: ./scripts/ci_run
       - save_cache:
