@@ -17,8 +17,8 @@ export default class LintCommand extends Command {
     cli.action.stop()
     for (let r of results) {
       if (r.error) throw r.error
-      if (r.stderr) cli.warn(r.stderr, { context: r.cmd })
       if (r.stdout) cli.log(`$ ${r.cmd}\n${r.stdout}`)
+      if (r.stderr) cli.warn(r.stderr, { context: r.cmd })
     }
   }
 }

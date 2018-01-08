@@ -4,7 +4,7 @@ import _ from 'ts-lodash'
 
 import { hasPrettier, hasTSLint, hasTypescript, spawn } from './util'
 
-export type Linter = 'tsc' | 'tslint' | 'prettier'
+export type Linter = 'yarn' | 'tsc' | 'tslint' | 'prettier'
 
 export interface Options {
   fix?: boolean
@@ -13,10 +13,20 @@ export interface Options {
 export type Result = execa.ExecaReturns & { error?: Error }
 
 export function active(): Linter[] {
-  return _.compact([hasTypescript() && 'tsc', hasTSLint() && 'tslint', hasPrettier() && 'prettier'])
+  return _.compact([
+    'yarn',
+    hasTypescript() && 'tsc',
+    hasTSLint() && 'tslint',
+    hasPrettier() && 'prettier',
+  ])
 }
 
 export const lint: { [k: string]: (opts: Options) => Promise<Result> } = {
+  async yarn() {
+    const result = await spawn('yarn', ['check'], { reject: false, stdio: [] })
+    if (isExecaError(result)) return { ...result, error: result }
+    return result
+  },
   async tsc() {
     const result = await spawn('tsc', [], { reject: false, stdio: [] })
     if (isExecaError(result)) return { ...result, error: result }
@@ -29,7 +39,6 @@ export const lint: { [k: string]: (opts: Options) => Promise<Result> } = {
     if (isExecaError(result)) return { ...result, error: new TSLintError(result) }
     return result
   },
-
   async prettier({ fix }) {
     const args = ['--list-different', 'src/**/*.ts', 'src/**/*.js']
     if (fix) args[0] = '--write'
