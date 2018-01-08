@@ -1,5 +1,7 @@
 import * as path from 'path'
 
+import { testSkipIfWindows } from '../test/init'
+
 import Test from './test'
 
 const fixtures = path.join(__dirname, '../../test/fixtures')
@@ -11,7 +13,7 @@ afterEach(() => {
 
 jest.setTimeout(30000)
 
-test('runs test', async () => {
+testSkipIfWindows('runs test', async () => {
   process.chdir(path.join(fixtures, 'jest'))
   const { stderr } = await Test.mock()
   expect(stderr).toContain('@cli-engine/util: linting with yarn, tsc, tslint, prettier... done\n')
