@@ -12,11 +12,13 @@ jobs:
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-master
+      - run: cd test/fixtures/jest && yarn --frozen-lockfile
       - run: ./scripts/ci_run
       - save_cache:
           key: v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
           paths:
             - ~/cli/node_modules
+            - ~/cli/test/fixtures/jest/node_modules
             - /usr/local/share/.cache/yarn
             - /usr/local/share/.config/yarn
             - /usr/bin/shellcheck

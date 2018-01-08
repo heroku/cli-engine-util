@@ -7,6 +7,7 @@
     "noUnusedParameters": true,
     "outDir": "./lib",
     "rootDir": "./src",
+    "forceConsistentCasingInFileNames": true,
     "strict": true,
     "target": "es2016"
   },
