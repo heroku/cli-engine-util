@@ -24,6 +24,7 @@ It creates a file './scripts/ci_run' that is intented to be used by circle ci ru
     await fs.chmod(path.join('scripts', 'ci_run'), '755')
     await this.outputTemplate(path.join('scripts', 'shellcheck'))
     await fs.chmod(path.join('scripts', 'shellcheck'), '755')
+    await this.validateGitignore()
   }
 
   private get templateRoot(): string {
@@ -43,5 +44,20 @@ It creates a file './scripts/ci_run' that is intented to be used by circle ci ru
     }
     cli.log(`write ${file}`)
     await fs.outputFile(path.join(this.root, file), output)
+  }
+
+  private async validateGitignore() {
+    const expected = ['/coverage', '/lib', '/node_modules', '/yarn-error.log']
+    const p = path.join(this.root, '.gitignore')
+    try {
+      const gi = await fs.readFile(p, 'utf8')
+      for (let e of expected) {
+        if (!gi.includes(e)) cli.warn(`Expected .gitignore to have "${e}"`)
+      }
+    } catch (err) {
+      if (err.code !== 'ENOENT') throw err
+      cli.log(`write ${p}`)
+      await fs.writeFile(p, expected.join('\n') + '\n')
+    }
   }
 }
