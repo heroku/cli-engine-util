@@ -22,8 +22,8 @@ It creates a file './scripts/ci_run' that is intented to be used by circle ci ru
   async run() {
     await this.outputTemplate(path.join('scripts', 'ci_run'))
     await fs.chmod(path.join('scripts', 'ci_run'), '755')
-    await this.outputTemplate(path.join('scripts', 'shellcheck'))
-    await fs.chmod(path.join('scripts', 'shellcheck'), '755')
+    // await this.outputTemplate(path.join('scripts', 'shellcheck'))
+    // await fs.chmod(path.join('scripts', 'shellcheck'), '755')
     await this.validateGitignore()
   }
 
