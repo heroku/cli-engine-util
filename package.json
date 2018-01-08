@@ -63,6 +63,6 @@
     "precommit": "./bin/run",
     "prepare": "./bin/run",
     "test": "./bin/run",
-    "posttest": "find scripts -type f -print0 | xargs -0 shellcheck"
+    "posttest": "./scripts/shellcheck"
   }
 }
