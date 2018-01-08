@@ -4,7 +4,7 @@ import * as execa from 'execa'
 import * as fs from 'fs-extra'
 
 export function spawn(command: string, args: string[] = [], opts: execa.Options = {}) {
-  const env = { ...opts.env || {} }
+  const env = { ...(opts.env || {}) }
   if (color.enabled) env.FORCE_COLOR = '1'
   return execa(command, args, {
     stdio: cli.config.mock ? [] : 'inherit',

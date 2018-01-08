@@ -1,4 +1,5 @@
 {
+  "license": "WTFPL",
   "devDependencies": {
     "jest": "*"
   }

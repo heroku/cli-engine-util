@@ -13,12 +13,7 @@ export interface Options {
 export type Result = execa.ExecaReturns & { error?: Error }
 
 export function active(): Linter[] {
-  return _.compact([
-    'yarn',
-    hasTypescript() && 'tsc',
-    hasTSLint() && 'tslint',
-    hasPrettier() && 'prettier',
-  ])
+  return _.compact(['yarn', hasTypescript() && 'tsc', hasTSLint() && 'tslint', hasPrettier() && 'prettier'])
 }
 
 export const lint: { [k: string]: (opts: Options) => Promise<Result> } = {
