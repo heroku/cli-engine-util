@@ -18,6 +18,7 @@ jobs:
           key: v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
           paths:
             - ~/cli/node_modules
+            - ~/cli/test/fixtures/jest/node_modules
             - /usr/local/share/.cache/yarn
             - /usr/local/share/.config/yarn
             - /usr/bin/shellcheck
