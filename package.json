@@ -64,7 +64,6 @@
     "posttest": "./scripts/shellcheck",
     "precommit": "./bin/run",
     "prepare": "./bin/run",
-    "semantic-release": "semantic-release",
     "test": "./bin/run"
   }
 }
