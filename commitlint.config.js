@@ -4,7 +4,7 @@ const { types, scopes, allowCustomScopes } = require('./.cz-config.js');
 
 const validTypes = types.map((type) => type.value);
 const validScopes = scopes.map((scope) => scope.name);
-const scopeValidationLevel = allowCustomScopes ? 1 : 2;
+const scopeValidationLevel = allowCustomScopes ? 0 : 2;
 
 module.exports = {
   extends: ['@commitlint/config-conventional'],
