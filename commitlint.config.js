@@ -1,6 +1,6 @@
 /* eslint-env node */
 
-const { types, scopes, allowCustomScopes } = require('./commitizen.config');
+const { types, scopes, allowCustomScopes } = require('./.cz-config.js');
 
 const validTypes = types.map((type) => type.value);
 const validScopes = scopes.map((scope) => scope.name);
