@@ -54,7 +54,7 @@ workflows:
           context: org-global
           filters:
             branches: {only: master}
-          # requires:
-          #   - node-latest
-          #   - node-8
-          #   - node-6
+          requires:
+            - node-latest
+            - node-8
+            - node-6
