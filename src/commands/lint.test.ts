@@ -1,7 +1,6 @@
 import * as execa from 'execa'
 import * as path from 'path'
 
-import { cmd } from '../lint'
 import { testSkipIfWindows } from '../test/init'
 
 import Lint from './lint'
@@ -22,8 +21,8 @@ jest.setTimeout(30000)
 
 test('runs test', async () => {
   process.chdir(path.join(fixtures, 'lint'))
-  const { stderr } = await Lint.mock()
-  expect(stderr).toEqual('@cli-engine/util: linting with yarn, tsc, tslint, prettier... done\n')
+  const { stdout } = await Lint.mock()
+  expect(stdout).toContain('@cli-engine/util: linting with tsc, tslint, prettier...\n')
 })
 
 test('tsc works', async () => {
@@ -43,17 +42,5 @@ test('tslint works', async () => {
 testSkipIfWindows('prettier works', async () => {
   process.chdir(path.join(fixtures, 'prettier'))
   execa.sync('yarn')
-  await expect(Lint.mock()).rejects.toThrowError(`Prettier would generate these files differently:
-
-src/invalid.js
-
-Run yarn test --fix to try to fix issues automatically.`)
-})
-
-test('cmd', () => {
-  expect(cmd()).toEqual('yarn test')
-  process.env.npm_lifecycle_event = 'precommit'
-  expect(cmd()).toEqual('yarn run precommit')
-  delete process.env.npm_lifecycle_event
-  expect(cmd()).toEqual('cli-engine-util lint')
+  await expect(Lint.mock()).rejects.toThrowError('src/invalid.js')
 })
