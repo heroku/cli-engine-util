@@ -22,7 +22,7 @@ jest.setTimeout(30000)
 test('runs test', async () => {
   process.chdir(path.join(fixtures, 'lint'))
   const { stdout } = await Lint.mock()
-  expect(stdout).toContain('@cli-engine/util: linting with tsc, tslint, prettier...\n')
+  expect(stdout).toContain('@cli-engine/util: linting with tsc, tslint, prettier, commitlint...\n')
 })
 
 test('tsc works', async () => {

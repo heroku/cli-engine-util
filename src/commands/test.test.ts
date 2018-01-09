@@ -16,7 +16,7 @@ jest.setTimeout(30000)
 testSkipIfWindows('runs test', async () => {
   process.chdir(path.join(fixtures, 'jest'))
   const { stdout } = await Test.mock()
-  expect(stdout).toContain('@cli-engine/util: testing with jest, tsc, tslint, prettier...\n')
+  expect(stdout).toContain('@cli-engine/util: testing with jest, tsc, tslint, prettier, commitlint...\n')
 })
 
 test('runs test when no jest', async () => {
