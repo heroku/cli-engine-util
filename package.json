@@ -76,7 +76,7 @@
     "templates"
   ],
   "license": "MIT",
-  "repository": "jdxcode/cli-engine-util",
+  "repository": "heroku/cli-engine-util",
   "scripts": {
     "commit": "git-cz",
     "commit:retry": "git-cz --retry",
