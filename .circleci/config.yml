@@ -9,9 +9,9 @@ jobs:
       - checkout
       - restore_cache: &restore_cache
           keys:
-            - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
-            - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
-            - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-master
+            - v0-yarn-{{ .Environment.CIRCLE_JOB }}-{{checksum ".circleci/config.yml"}}-{{ .Branch }}-{{checksum "yarn.lock"}}
+            - v0-yarn-{{ .Environment.CIRCLE_JOB }}-{{checksum ".circleci/config.yml"}}-{{ .Branch }}-
+            - v0-yarn-{{ .Environment.CIRCLE_JOB }}-{{checksum ".circleci/config.yml"}}-master
       - run: |
           if [[ ! -x "$(command -v shellcheck)" ]]; then
             apt-key update && apt-get update && apt-get install -y --force-yes shellcheck
@@ -19,7 +19,7 @@ jobs:
       - run: cd test/fixtures/jest && yarn --frozen-lockfile
       - run: ./scripts/ci_run
       - save_cache: &save_cache
-          key: v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
+          key: v0-yarn-{{ .Environment.CIRCLE_JOB }}-{{checksum ".circleci/config.yml"}}-{{ .Branch }}-{{checksum "yarn.lock"}}
           paths:
             - ~/cli/node_modules
             - ~/cli/test/fixtures/jest/node_modules
