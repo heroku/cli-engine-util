@@ -1,7 +1,7 @@
 {
   "name": "@cli-engine/util",
   "description": "scripts to use with cli-engine codebases",
-  "version": "1.2.1",
+  "version": "1.2.6",
   "author": "Jeff Dickey @jdxcode",
   "bin": {
     "cli-engine-util": "./bin/run"
