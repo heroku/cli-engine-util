@@ -39,6 +39,10 @@
     "@commitlint/config-conventional": "^5.2.3",
     "@commitlint/prompt": "^5.2.8",
     "@heroku-cli/tslint": "^1.1.4",
+    "@semantic-release/changelog": "^1.0.0",
+    "@semantic-release/git": "^2.0.1",
+    "@semantic-release/github": "^3.0.1",
+    "@semantic-release/npm": "^2.6.1",
     "@types/ansi-styles": "^2.0.30",
     "@types/del": "^3.0.0",
     "@types/execa": "^0.8.1",
@@ -72,12 +76,6 @@
     "templates"
   ],
   "license": "MIT",
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/npm",
-      "@semantic-release/github"
-    ]
-  },
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
     "commit": "git-cz",
