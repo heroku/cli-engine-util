@@ -46,6 +46,7 @@ const scopes = [
   'prepare',
   'setup',
   'test',
+  'deps',
 ].map(name => ({ name }));
 
 module.exports = {
