@@ -1,7 +1,7 @@
 {
   "name": "@cli-engine/util",
   "description": "scripts to use with cli-engine codebases",
-  "version": "1.1.5",
+  "version": "0.0.0-development",
   "author": "Jeff Dickey @jdxcode",
   "bin": {
     "cli-engine-util": "./bin/run"
@@ -44,6 +44,7 @@
     "husky": "^0.14.3",
     "jest": "^22.0.4",
     "prettier": "^1.9.2",
+    "semantic-release": "^11.0.2",
     "ts-jest": "^22.0.1",
     "ts-node": "^4.1.0",
     "tslint": "^5.8.0",
@@ -60,9 +61,10 @@
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
+    "posttest": "./scripts/shellcheck",
     "precommit": "./bin/run",
     "prepare": "./bin/run",
-    "test": "./bin/run",
-    "posttest": "./scripts/shellcheck"
+    "semantic-release": "semantic-release",
+    "test": "./bin/run"
   }
 }

@@ -1,13 +1,13 @@
 ---
 version: 2
 jobs:
-  node-latest: &test-build
+  node-latest: &test_build
     docker:
       - image: node:latest
     working_directory: ~/cli
     steps:
       - checkout
-      - restore_cache:
+      - restore_cache: &restore_cache
           keys:
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-{{checksum "yarn.lock"}}
             - v0-yarn-{{checksum ".circleci/config.yml"}}-{{ .Environment.CIRCLE_JOB }}-{{ .Branch }}-
@@ -27,13 +27,20 @@ jobs:
             - /usr/local/share/.config/yarn
             - /usr/bin/shellcheck
   node-8:
-    <<: *test-build
+    <<: *test_build
     docker:
       - image: node:8
   node-6:
-    <<: *test-build
+    <<: *test_build
     docker:
       - image: node:6
+  release:
+    <<: *test_build
+    steps:
+      - checkout
+      - restore_cache: *restore_cache
+      - run: yarn
+      - run: npm whoami
 
 workflows:
   version: 2
@@ -42,3 +49,11 @@ workflows:
       - node-latest
       - node-8
       - node-6
+      - release:
+          context: org-global
+          # filters:
+          #   branches: {only: master}
+          requires:
+            - node-latest
+            - node-8
+            - node-6
