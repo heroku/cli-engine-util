@@ -11,6 +11,11 @@
     "bin": "cli-engine-util",
     "commands": "./lib/commands"
   },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/@commitlint/prompt"
+    }
+  },
   "dependencies": {
     "@cli-engine/command": "^12.1.0",
     "@cli-engine/config": "^5.1.0",
@@ -28,6 +33,9 @@
     "tslib": "^1.8.1"
   },
   "devDependencies": {
+    "@commitlint/cli": "^5.2.8",
+    "@commitlint/config-conventional": "^5.2.3",
+    "@commitlint/prompt": "^5.2.8",
     "@heroku-cli/tslint": "^1.1.2",
     "@types/ansi-styles": "^2.0.30",
     "@types/del": "^3.0.0",
@@ -41,6 +49,7 @@
     "@types/normalize-package-data": "^2.4.0",
     "@types/read-pkg-up": "^3.0.0",
     "@types/supports-color": "^3.1.0",
+    "commitizen": "^2.9.6",
     "husky": "^0.14.3",
     "jest": "^22.0.4",
     "prettier": "^1.9.2",
@@ -61,6 +70,9 @@
   "license": "MIT",
   "repository": "jdxcode/cli-engine-util",
   "scripts": {
+    "commit": "git-cz",
+    "commit:retry": "git-cz --retry",
+    "commitmsg": "commitlint -e",
     "posttest": "./scripts/shellcheck",
     "precommit": "./bin/run",
     "prepare": "./bin/run",
