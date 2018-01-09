@@ -24,6 +24,7 @@
     "handlebars": "^4.0.11",
     "jest-diff": "^22.0.3",
     "read-pkg-up": "^3.0.0",
+    "shelljs": "^0.7.8",
     "ts-lodash": "^4.0.10",
     "tslib": "^1.8.1"
   },
