@@ -1,5 +1,8 @@
 #!/usr/bin/env node
 
+const npmRunPath = require('npm-run-path')
+process.env = npmRunPath.env()
+
 const script = process.env.npm_lifecycle_event
 // default to current npm script
 if (script && process.argv[2] !== script) {

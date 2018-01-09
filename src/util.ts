@@ -2,6 +2,7 @@ import color from '@heroku-cli/color'
 import cli from 'cli-ux'
 import * as execa from 'execa'
 import * as fs from 'fs-extra'
+import * as sh from 'shelljs'
 
 export function spawn(command: string, args: string[] = [], opts: execa.Options = {}) {
   const env = { ...(opts.env || {}) }
@@ -23,6 +24,10 @@ export function hasPrettier(): boolean {
 
 export function hasTypescript(): boolean {
   return fs.existsSync('tsconfig.json')
+}
+
+export function hasCommitlint(): boolean {
+  return !!sh.which('commitlint')
 }
 
 export function hasJest(pkg: any): boolean {
