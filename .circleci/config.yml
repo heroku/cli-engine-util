@@ -47,9 +47,9 @@ workflows:
   version: 2
   test:
     jobs:
-      # - node-latest
-      # - node-8
-      # - node-6
+      - node-latest
+      - node-8
+      - node-6
       - release:
           context: org-global
           filters:
