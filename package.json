@@ -41,7 +41,9 @@
     "@types/normalize-package-data": "^2.4.0",
     "@types/read-pkg-up": "^3.0.0",
     "@types/supports-color": "^3.1.0",
+    "concurrently": "^3.5.1",
     "husky": "^0.14.3",
+    "intern": "^4.1.5",
     "jest": "^22.0.4",
     "prettier": "^1.9.2",
     "ts-jest": "^22.0.1",
@@ -62,7 +64,7 @@
   "scripts": {
     "precommit": "./bin/run",
     "prepare": "./bin/run",
-    "test": "./bin/run",
+    "test": "concurrently \"jest\" \"tsc\" \"prettier -l **/*.ts\" \"tslint -p .\"",
     "posttest": "./scripts/shellcheck"
   }
 }
