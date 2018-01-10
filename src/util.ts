@@ -14,6 +14,12 @@ export function spawn(command: string, args: string[] = [], opts: execa.Options 
   })
 }
 
+export function concurrently(tasks: string[]) {
+  cli.log(tasks.map(t => `$ ${t}`).join('\n'))
+  const names = tasks.map(t => t.split(' ')[0]).join()
+  return spawn('concurrently', ['-n', names, '-s', 'all', ...tasks])
+}
+
 export function hasTSLint(): boolean {
   return fs.existsSync('tslint.json')
 }

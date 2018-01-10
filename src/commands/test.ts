@@ -2,7 +2,7 @@ import cli from 'cli-ux'
 
 import Command, { flags } from '../command'
 import Lint from '../lint'
-import { hasJest, spawn } from '../util'
+import { concurrently, hasJest } from '../util'
 
 export default class Test extends Command {
   static variableArgs = true
@@ -17,8 +17,6 @@ export default class Test extends Command {
       tasks = [['jest', ...this.argv].join(' '), ...tasks]
     } else cli.warn('jest is not in package.json devDependencies')
 
-    cli.log(`@cli-engine/util: testing with ${tasks.map(t => t.split(' ')[0]).join(', ')}...`)
-
-    await spawn('concurrently', ['-p', 'command', '-s', 'all', ...tasks])
+    await concurrently(tasks)
   }
 }
