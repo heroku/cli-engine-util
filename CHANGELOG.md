@@ -1,3 +1,11 @@
+<a name="1.2.10"></a>
+## [1.2.10](https://github.com/heroku/cli-engine-util/compare/b5aa2ccc1c4d5d1df14e479a6c8718d7ea753c06...v1.2.10) (2018-01-10)
+
+
+### Bug Fixes
+
+* **deps:** added shelljs ([45074a7](https://github.com/heroku/cli-engine-util/commit/45074a7))
+
 <a name="1.2.9"></a>
 ## [1.2.9](https://github.com/heroku/cli-engine-util/compare/1dd8002f8effd12fc845f87936d4672db1af7263...v1.2.9) (2018-01-09)
 
