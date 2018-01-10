@@ -1,3 +1,11 @@
+<a name="1.2.11"></a>
+## [1.2.11](https://github.com/heroku/cli-engine-util/compare/45074a7d3fbbe26a2706a14510fe47d5786a13fc...v1.2.11) (2018-01-10)
+
+
+### Bug Fixes
+
+* **test:** show full command output from concurrently ([ab47fdd](https://github.com/heroku/cli-engine-util/commit/ab47fdd))
+
 <a name="1.2.10"></a>
 ## [1.2.10](https://github.com/heroku/cli-engine-util/compare/b5aa2ccc1c4d5d1df14e479a6c8718d7ea753c06...v1.2.10) (2018-01-10)
 
