@@ -28,7 +28,7 @@
     "execa": "^0.8.0",
     "fs-extra": "^5.0.0",
     "handlebars": "^4.0.11",
-    "jest-diff": "^22.0.3",
+    "jest-diff": "^22.0.5",
     "npm-run-path": "^2.0.2",
     "read-pkg-up": "^3.0.0",
     "shelljs": "^0.7.8",
@@ -36,9 +36,9 @@
     "tslib": "^1.8.1"
   },
   "devDependencies": {
-    "@commitlint/cli": "^5.2.8",
+    "@commitlint/cli": "^6.0.1",
     "@commitlint/config-conventional": "^5.2.3",
-    "@commitlint/prompt": "^5.2.8",
+    "@commitlint/prompt": "^6.0.1",
     "@heroku-cli/tslint": "^1.1.4",
     "@semantic-release/changelog": "^1.0.0",
     "@semantic-release/git": "^2.0.1",
@@ -60,12 +60,12 @@
     "commitizen": "^2.9.6",
     "cz-customizable": "^5.2.0",
     "husky": "^0.14.3",
-    "jest": "^22.0.4",
-    "prettier": "^1.9.2",
+    "jest": "^22.0.5",
+    "prettier": "^1.10.1",
     "semantic-release": "^11.0.2",
     "ts-jest": "^22.0.1",
     "ts-node": "^4.1.0",
-    "tslint": "^5.8.0",
+    "tslint": "^5.9.0",
     "typescript": "^2.6.2"
   },
   "engines": {
