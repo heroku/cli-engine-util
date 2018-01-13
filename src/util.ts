@@ -25,6 +25,8 @@ export function hasTSLint(): boolean {
 }
 
 export function hasPrettier(): boolean {
+  // disable prettier on windows
+  if (process.platform === 'win32') return false
   return fs.existsSync('.prettierrc')
 }
 
