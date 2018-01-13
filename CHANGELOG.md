@@ -1,3 +1,11 @@
+<a name="1.2.12"></a>
+## [1.2.12](https://github.com/heroku/cli-engine-util/compare/ab47fddeddd20ace213faf0b8ddd5806b51357aa...v1.2.12) (2018-01-13)
+
+
+### Bug Fixes
+
+* disable prettier on windows ([e68c2f3](https://github.com/heroku/cli-engine-util/commit/e68c2f3))
+
 <a name="1.2.11"></a>
 ## [1.2.11](https://github.com/heroku/cli-engine-util/compare/45074a7d3fbbe26a2706a14510fe47d5786a13fc...v1.2.11) (2018-01-10)
 
