@@ -30,4 +30,3 @@ if [[ "$CLI_ENGINE_GREENKEEPER_BRANCH" == 1 ]]; then
 fi
 
 yarn test --coverage
-curl -s https://codecov.io/bash | bash
